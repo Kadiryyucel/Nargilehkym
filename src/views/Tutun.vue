@@ -27,31 +27,30 @@
 
 <script>
 export default {
-  mounted(){
+  mounted() {
     window.scrollTo(0, 0);
   },
-  created(){},
+  created() {
+    var url =
+      "mongodb://kadir:javascript@104.248.49.151:27017?authMechanism=SCRAM-SHA-1&authSource=admin";
+    this.$http.get(url).then((res,err) => {
+      if(err) throw err;
+      this.option = res.body;
+      console.log(res.body);
+    });
+  },
   data() {
     return {
-      option: {
+      title:"Nargile Tütün",
+      option: {},
+      /*option: {
         a: {
           category: "Nargile Tütünleri",
           title: "NU UFO ÇELİK NARGİLE TAKIMI",
           tag: "Narigle Takımı,Ca",
           url: `photo`,
           explanation: {
-            inner: `<div style="color:rgb(184, 184, 184)"><span style="display:block;padding:8px 0"><b>Açıklama</b></span></div><div style="overflow-wrap: break-word ;
-  width: 700px ;
-  font-size: 18px;
-line-height: 22px;">
-                  <div><span>RenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenk</span></div>
-                  <div><span>RenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenk</span></div>
-                  <div><span>RenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenk</span></div>
-                  <div><span>RenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenk</span></div>
-                  <div><span>RenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenk</span></div>
-                  <div><span>RenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenk</span></div>
-                  <div><span>RenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenkRenk</span></div>
-                </div>`,
+            inner: "kjdflakjkfl jakdj kajd kjak jfalkjds flakjdl fkjalkd jalj akjdlfjasldkjk jaslkfj alkds j",
           },
           imgs: [
             {
@@ -145,7 +144,7 @@ line-height: 22px;">
           price: "₺ 400",
         },
       },
-      title: "Nargile Tütünü",
+      title: "Nargile Tütünü",*/
     };
   },
 };

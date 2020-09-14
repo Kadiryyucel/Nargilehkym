@@ -29,14 +29,16 @@
 
 <script>
 export default {
-  props: {
-    option: {},
-  },
+  //props: {
+  //option: {},
+  //},
   created() {
     this.adjustContents();
   },
   data() {
-    return { contents: [] };
+    return { contents: [],
+              objeNargileTakım:{}
+    };
   },
   methods: {
     detail(i) {

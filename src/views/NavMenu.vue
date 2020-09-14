@@ -1,13 +1,13 @@
 <template>
   <div class="nav-wrapper">
     <div class="nav head">
-      <h6 class="color" style="margin: 0;">
+      <h4 class="color" style="margin: 0;">
         <b>Bilgilendirme :</b>
-      </h6>4207 sayılı kanun gereği online tütün satışı yapılması yasaktır. Mağazamızdaki tütün çeşitleri için
+      </h4>4207 sayılı kanun gereği online tütün satışı yapılması yasaktır. Mağazamızdaki tütün çeşitleri için
       <span
         class="color"
       >
-        <b>+90 534 054 30 40</b>
+        <h4 style="margin: 0;padding: 0 7px;">+90 534 054 30 40</h4>
         <img src="../assets/WhatsApp_Logo.png" style="width:35px;heigth:35px;position:relative;" />
       </span> WhatsApp hattından ulaşabilirsiniz.
     </div>
@@ -38,6 +38,7 @@ export default {
 }
 .head {
   padding-left: 120px;
+  display: flex;
 }
 .title {
   bottom: 10px;
@@ -51,7 +52,9 @@ export default {
   position: relative;
 }
 .color {
-  color:#393e46 !important;
+  display: flex;
+  align-items: center;
+  color: black;
 }
 h4 {
   display: inline-block;
@@ -161,7 +164,7 @@ ul {
 .nav {
   font-size: 15px;
   background-color: #f7f7f7;
-  color: #f8b500;
+  color: #5c636e;
   height: 48px;
   align-items: center;
 
@@ -171,7 +174,7 @@ ul {
     padding: 10px;
   }
   span {
-    color: wheat;
+    color: black;
   }
 }
 </style>

@@ -4,7 +4,7 @@
     <div class="wrapper">
       <div class="text-wrapper" >
         <div class="text">
-          <h1>Nargile Tütünü Satın Almak için Neden Biz?</h1>
+          <h1>Nargile Ürünü Satın Almak için Neden Biz?</h1>
           <div></div>
           <div>
             <span>Nargile Tütünü Satın Almanın yanında tüm nargile malzemeleri ve nargile takımı satın almak için bizi tercih edebilirsiniz. Sizlere %100 orijinal Nargile tütünü çeşitleri sunuyoruz. Satışını yaptığımız ürünler yerlidir ve direkt fabrika veya distribütörden gelmektedir. Yeni başlayanlar normal olarak güven sorunu yaşadığından nargile satın almak için n11, hepsiburada, gittigidiyor gibi bilinen sitelere yönelmektedir. Unutmayın ki bu sitelerde nargile satıcıları eminönü, istoç gibi yerlerden satın almak kadar risklidir. Sıkıntınız olduğunda muhatap bulamayabilirsiniz. Diğer yandan biz sizlere Whatsapp hattımızdan sürekli destek veriyoruz :)</span>
@@ -14,7 +14,7 @@
       <div class="change">
         <img
           class="changeİmg"
-          src="../assets/hookah.jpg"
+          src="//img1.wsimg.com/isteam/stock/16729/:/rs=w:1240,h:620,cg:true,m/cr=w:1240,h:620"
           style="width:100%;height:700px;bottom:400px;"
         />
       </div>
@@ -32,12 +32,12 @@
   left: 200px;
   position: relative;
   top: 60px;
-  color:#f8b500;
+  color:#5c636e;
 }
 .text-wrapper {
   height: 350px;
   line-height: 1.5;
-  background-image: linear-gradient( #5c636e,#393e46);
+  background-color:white;
   box-shadow: 0 5px 10px;
 }
 .changeİmg {
@@ -55,7 +55,7 @@ export default {
     change(){
       let changePosition = document.getElementsByClassName("changeİmg")[0];
       if (window.scrollY >= 374)
-        changePosition.style.top = (window.scrollY - 1200) + "px";
+        changePosition.style.top = (window.scrollY - 1250) + "px";
         console.log(window.scrollY)
     },
     changePosition() {

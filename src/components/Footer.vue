@@ -92,7 +92,7 @@ span {
   padding: 50px 0 0 0;
 }
 .wrapper {
-  height: 400px;
+  height: 350px;
   margin: 0 auto;
   background-color: #f7f7f7;
   position: relative;

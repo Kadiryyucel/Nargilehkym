@@ -46,7 +46,23 @@
                   </div>
                 </div>
               </div>
-              <div class="large-explanation e" style="top:30px;" v-html="i.explanation.inner"></div>
+              <div class="large-explanation e" style="top:30px;">
+                <div style="color:rgb(184, 184, 184)">
+                  <span style="display:block;padding:8px 0">
+                    <b>Açıklama</b>
+                  </span>
+                </div>
+                <div
+                  style="overflow-wrap: break-word ;
+  width: 700px ;
+  font-size: 18px;
+line-height: 22px;"
+                >
+                  <div>
+                    <span>{{i.explanation.inner}}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
