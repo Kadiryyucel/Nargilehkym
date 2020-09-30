@@ -2,10 +2,9 @@
   <div class="home">
     <navmenu></navmenu>
     <div class="wrapper">
-      <div class="text-wrapper" >
+      <div class="text-wrapper col-xs-4 col-sm-8 col-md-12 col-lg-12" >
         <div class="text">
           <h1>Nargile Ürünü Satın Almak için Neden Biz?</h1>
-          <div></div>
           <div>
             <span>Nargile Tütünü Satın Almanın yanında tüm nargile malzemeleri ve nargile takımı satın almak için bizi tercih edebilirsiniz. Sizlere %100 orijinal Nargile tütünü çeşitleri sunuyoruz. Satışını yaptığımız ürünler yerlidir ve direkt fabrika veya distribütörden gelmektedir. Yeni başlayanlar normal olarak güven sorunu yaşadığından nargile satın almak için n11, hepsiburada, gittigidiyor gibi bilinen sitelere yönelmektedir. Unutmayın ki bu sitelerde nargile satıcıları eminönü, istoç gibi yerlerden satın almak kadar risklidir. Sıkıntınız olduğunda muhatap bulamayabilirsiniz. Diğer yandan biz sizlere Whatsapp hattımızdan sürekli destek veriyoruz :)</span>
           </div>
@@ -14,7 +13,7 @@
       <div class="change">
         <img
           class="changeİmg"
-          src="//img1.wsimg.com/isteam/stock/16729/:/rs=w:1240,h:620,cg:true,m/cr=w:1240,h:620"
+          src="https://img1.wsimg.com/isteam/stock/16729/:/rs=w:1240px,h:620px,cg:true,m/cr=w:1240px,h:620px"
           style="width:100%;height:700px;bottom:400px;"
         />
       </div>
@@ -23,6 +22,17 @@
 </template>
 
 <style lang="scss" scoped>
+@media only screen and (max-width: 600px) {
+  .text{
+    left:0 !important;
+  }
+  .change{
+    display: none;
+  }
+  .text-wrapper{
+    display: none;
+  }  
+}
 .change {
   height: 500px;
   overflow: hidden;
@@ -54,8 +64,8 @@ export default {
   methods: {
     change(){
       let changePosition = document.getElementsByClassName("changeİmg")[0];
-      if (window.scrollY >= 374)
-        changePosition.style.top = (window.scrollY - 1250) + "px";
+      if (window.scrollY >= 2100)
+        changePosition.style.top = (window.scrollY - 2750) + "px";
         console.log(window.scrollY)
     },
     changePosition() {

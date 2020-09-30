@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="content-wrapper">
-      <div class="content" :key="i" v-for="i of contents">
+      <div class="content" :key="i" v-for="i of option">
         <div class="content-img">
           <div class="static" style="font-size:20px;color:white;">
             <div class="circle">
@@ -10,7 +10,7 @@
           </div>
           <img
             class="picture"
-            :src="require(`../assets/${i.url}.jpeg`)"
+            :src="require(`../../../api/public/${i.url}.jpeg`)"
             style="width:270px;height:270px"
           />
           <a class="staticAll" @click="detail(i)"></a>
@@ -29,30 +29,23 @@
 
 <script>
 export default {
-  //props: {
-  //option: {},
-  //},
-  created() {
-    this.adjustContents();
-  },
-  data() {
-    return { contents: [],
-              objeNargileTakım:{}
-    };
+  props: {
+  option: Array,
   },
   methods: {
     detail(i) {
+      console.log(i)
       this.$router.push({ path: "/detail" });
-      this.$store.commit("detail/setModel", i);
-    },
-    adjustContents() {
-      this.contents = [];
-      Object.keys(this.option).forEach((key) => {
-        let values = this.option[key];
-        this.contents.push(values);
-      });
+      this.$store.commit("module/setModel", i);
     },
   },
+  computed:{
+    t:{
+      get(){
+        return this.$store.state.module.title
+      }
+    }
+  }
 };
 </script>
 

@@ -1,29 +1,36 @@
 <template>
   <div class="wrapper">
     <div class="toolbar">
-      <span class="title">{{i.title}}</span>
+      <div class="arrow" @click="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="title">{{ i.title }}</div>
     </div>
     <div class="outer-wrapper">
       <div class="into-wrapper">
         <div class="content">
           <div class="change-wrapper" @mousemove="newPosition">
             <div class="content-img" :key="a" v-for="a of i.imgs">
-              <a style="display:block;">
+              <a style="display: block">
                 <img
                   class="picture"
-                  :src="require(`../assets/${a.img}.jpeg`)"
-                  style="width:400px;height:500px"
+                  :src="require(`../../../api/public/${a.img}.jpeg`)"
+                  style="width: 400px; height: 500px"
                 />
               </a>
-              <img class="zoomİmg" :src="require(`../assets/${a.img}.jpeg`)" :style="a.set" />
+              <img
+                class="zoomİmg"
+                :src="require(`../../../api/public/${a.img}.jpeg`)"
+                :style="a.set"
+              />
             </div>
           </div>
           <div class="ranking" v-if="i.ranking">
             <img
               class="sml"
               :key="sml"
-              style="width:100px;height:100px"
-              :src="require(`../assets/${sml.img}.jpeg`)"
+              style="width: 100px; height: 100px"
+              :src="require(`../../../api/public/${sml.img}.jpeg`)"
               @click="change(sml.index)"
               v-for="sml of i.ranking"
             />
@@ -31,38 +38,55 @@
         </div>
         <div class="information-wrapper">
           <div class="information">
-            <div class="price">{{i.price}}</div>
-            <div style="top:30px;position:relative;">
-              <div class="explanation e">{{i.tag}}</div>
+            <div class="price">{{ i.price }}</div>
+            <div style="top: 30px; position: relative">
+              <div class="explanation e">{{ i.tag }}</div>
               <div class="colors">
-                <div style="width: 40px; margin-bottom: 10px;">
+                <div style="width: 40px; margin-bottom: 10px">
                   <span class="color-title">
                     <b>Renk</b>
                   </span>
                 </div>
-                <div style="display:flex;">
-                  <div class="color-wrapper" :key="a" v-for="a of i.colors" @click="change(a.i)">
-                    <div class="color" :style="`backgroundColor:${a.color}`"></div>
+                <div style="display: flex">
+                  <div
+                    class="color-wrapper"
+                    :key="a"
+                    v-for="a of i.colors"
+                    @click="change(a.i)"
+                  >
+                    <div
+                      class="color"
+                      :style="`backgroundColor:${a.color}`"
+                    ></div>
                   </div>
                 </div>
               </div>
-              <div class="large-explanation e" style="top:30px;">
-                <div style="color:rgb(184, 184, 184)">
-                  <span style="display:block;padding:8px 0">
-                    <b>Açıklama</b>
-                  </span>
-                </div>
-                <div
-                  style="overflow-wrap: break-word ;
-  width: 700px ;
-  font-size: 18px;
-line-height: 22px;"
+              <div style="color: rgb(184, 184, 184)">
+                <span
+                  style="
+                    display: block;
+                    padding: 8px 0;
+                    margin: 10px 0 0 0;
+                    text-align: left;
+                  "
                 >
-                  <div>
-                    <span>{{i.explanation.inner}}</span>
-                  </div>
+                  <b>Açıklama</b>
+                </span>
+              </div>
+              <div class="large-explanation e" style="top: 10px">
+                <div
+                  style="
+                    overflow-wrap: break-word;
+                    width: 700px;
+                    font-size: 18px;
+                    line-height: 22px;
+                    padding: 0 0 90px 0;
+                  "
+                >
+                  <span>{{ i.explanation.inner }}</span>
                 </div>
               </div>
+              <div class="fix"></div>
             </div>
           </div>
         </div>
@@ -98,7 +122,7 @@ export default {
   computed: {
     i: {
       get() {
-        return this.$store.state.detail.model;
+        return this.$store.state.module.model;
       },
     },
   },
@@ -111,10 +135,13 @@ export default {
           let zoom = contents[i].children[1];
           console.log(zoom);
           zoom.style.opacity = "1";
-          zoom.style.top = -e.pageY + 400 + "px";
-          zoom.style.left = -e.pageX + "px";
+          zoom.style.top = -e.pageY + 550 + "px";
+          zoom.style.left = -e.pageX + 67 + "px";
         }
       }
+    },
+    goBack() {
+      window.history.back();
     },
     back() {
       let contents = document.getElementsByClassName("content-img");
@@ -149,8 +176,9 @@ export default {
           }
         }
       } else if (select == 0) {
-        for (let a = 0; a < contents.length; a++) {
-          smlİmg[a].style.opacity = "0.8";
+        console.log(contents);
+        for (let r = 0; r < contents.length; r++) {
+          smlİmg[r].style.opacity = "0.8";
           contents[select + i].style.left = hav * i + "px";
           i++;
           if (i == contents.length) {
@@ -222,6 +250,23 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+* {
+  color: #5c636e;
+}
+.fix {
+  width: 98%;
+  height: 100px;
+  position: absolute;
+  bottom: -10px;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.15) ,#f7f7f7);
+}
+.large-explanation {
+  height: 440px;
+  overflow: auto;
+  scrollbar-color: var(--scrollbar-thumb-background-color)
+    var(--scrollbar-track-background-color);
+  scrollbar-width: thin;
+}
 .content-img {
   position: absolute;
   width: 400px;
@@ -261,8 +306,6 @@ li {
 .color-wrapper {
   padding: 2px;
   position: relative;
-  width: 41px;
-  height: 41px;
   border: 1px solid #b8b8b8;
 }
 .color {
@@ -271,15 +314,25 @@ li {
 }
 .e {
   position: relative;
-  height: 30px;
   text-align: left;
+}
+.arrow {
+  font-size: 40px;
+  left: 30px;
+  position: relative;
+  cursor: pointer;
 }
 .toolbar {
   text-align: left;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  background-color: rgb(241, 240, 240);
+  border-bottom: 1px solid rgb(180, 180, 180);
 }
 .title {
   display: inline-block;
-  top: 25px;
   position: relative;
   font-size: 25px;
   left: 40px;
@@ -303,12 +356,6 @@ li {
 }
 .information-wrapper {
   width: 100%;
-}
-.toolbar {
-  height: 80px;
-  width: 100%;
-  background-color: rgb(241, 240, 240);
-  border-bottom: 1px solid rgb(180, 180, 180);
 }
 .outer-wrapper {
   padding: 0 66px 0 67px;

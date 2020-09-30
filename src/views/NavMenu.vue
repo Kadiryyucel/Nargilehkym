@@ -1,5 +1,5 @@
-<template>
-  <div class="nav-wrapper">
+<template class="row">
+  <div class="nav-wrapper  col-xs-4 col-sm-8 col-md-12 col-lg-12">
     <div class="nav head">
       <h4 class="color" style="margin: 0;">
         <b>Bilgilendirme :</b>
@@ -12,7 +12,10 @@
       </span> WhatsApp hattından ulaşabilirsiniz.
     </div>
     <div>
-      <img src="../assets/logo.jpg" style="height:370px;width:100%" />
+      <img
+        src="../assets/logo.jpg"
+        style="height:370px;width:100%"
+      />
     </div>
   </div>
 </template>
@@ -28,6 +31,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav-wrapper{padding:0;}
+@media only screen and (max-width: 600px) {
+  .nav{
+    display:flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+  .nav-wrapper{
+    display: flex ;
+    flex-direction: column ;
+    padding: 0;
+  }
+}
 .dropMenu {
   box-shadow: 0px 5px 15px;
 }
